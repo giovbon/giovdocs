@@ -1,5 +1,7 @@
 ---
 icon: simple/markdown
+tags:
+  - Teste1
 ---
 
 # Get started
