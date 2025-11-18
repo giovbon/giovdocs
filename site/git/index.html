@@ -350,6 +350,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#areas-do-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Áreas do Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#principais-comandos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -357,6 +368,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Principais comandos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverter-mudancas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverter mudanças
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -476,6 +504,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#areas-do-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Áreas do Git
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#principais-comandos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -483,6 +522,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Principais comandos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverter-mudancas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverter mudanças
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -530,6 +586,13 @@
 <ol>
 <li>O comando é usado para exibir as configurações globais do Git que foram definidas no sistema. Essas configurações são armazenadas em um arquivo chamado <code>.gitconfig</code>, que geralmente fica localizado no diretório home do usuário.</li>
 </ol>
+<h2 id="areas-do-git">Áreas do Git<a class="headerlink" href="#areas-do-git" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="https://www.i2tutorials.com/wp-content/media/2023/02/work2.png" /></p>
+<ul>
+<li>Working Directory: O arquivo que você está editando.</li>
+<li>Staging Area: O conjunto de alterações que será incluído no próximo commit.</li>
+<li>Repository (Repositório): O banco de dados de commits, pode ser local ou remoto.</li>
+</ul>
 <h2 id="principais-comandos">Principais comandos<a class="headerlink" href="#principais-comandos" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># inicialização</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>init<span class="w"> </span><span class="c1"># (2)!</span>
@@ -592,12 +655,31 @@
 <li>Maneira pela qual podemos passar as alterações de um branch (<code>featureA</code>) para outra branch (<code>main</code>).</li>
 <li>Maneira de transferir um conjunto de commits de uma branch (<code>featureA</code>) para outra (<code>main</code>). O objetivo principal do rebasing é criar um histórico de commits mais linear e limpo.</li>
 </ol>
+<h3 id="reverter-mudancas">Reverter mudanças<a class="headerlink" href="#reverter-mudancas" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>restore<span class="w"> </span>&lt;nome-do-arquivo&gt;<span class="w"> </span><span class="c1"># (1)!</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;nome-do-arquivo&gt;<span class="w"> </span><span class="c1"># (2)!</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>restore<span class="w"> </span>--source<span class="o">=</span>&lt;hash-do-commit&gt;<span class="w"> </span>&lt;nome-do-arquivo&gt;<span class="w"> </span><span class="c1"># (3)!</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># REVERTENDO COMMITS</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>git<span class="w"> </span>revert<span class="w"> </span>&lt;hash-do-commit&gt;<span class="w"> </span><span class="c1"># (4)!</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>git<span class="w"> </span>revert<span class="w"> </span>HEAD~2<span class="w"> </span><span class="c1"># (6)!</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~2<span class="w"> </span><span class="c1"># (5)!</span>
+</span></code></pre></div>
+<ol>
+<li>Você fez alterações em um arquivo, percebeu que cometeu um erro e quer descartar tudo para começar de novo a partir do último commit. O arquivo em sua cópia de trabalho é sobrescrito com a versão do último commit (ou do staging, se estiver staged). As alterações que você fez no arquivo são permanentemente perdidas.</li>
+<li>Você fez <code>git add</code> em um arquivo por engano ou decidiu que as alterações nele precisam de mais trabalho e você decidiu que ele não deveria fazer parte do próximo commit. O arquivo é removido da área de staging. A versão modificada do arquivo em sua cópia de trabalho é mantida; ele simplesmente se move de volta para a seção "Changes not staged for commit".</li>
+<li>Você precisa ver ou reverter para a versão de um arquivo de um ponto específico no histórico do projeto. O arquivo na sua cópia de trabalho é revertido para a versão daquele commit específico.</li>
+<li>Cria um novo commit que, essencialmente, apaga (remove) as modificações que haviam sido feitas no commit original, desfazendo seu efeito sem reescrever o histórico. <a href="https://dev.to/womakerscode/tutorial-git-desfazendo-commits-revert-57c2">[Tutorial Git] git revert: Desfazendo commits - DEV Community</a></li>
+<li>Move o <code>HEAD</code> e a branch local dois commits para trás. Descarta todos os commits e as alterações feitas neles (tanto no staging quanto na cópia de trabalho).</li>
+<li>Comando alternativo, sendo o número 1 o último commit, o 2 o penúltimo, o 3 o antepenúltimo e assim por diante...</li>
+</ol>
 <p>Marcador de Conflitos:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{Conteúdo do branch de destino}
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>=======
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>{Conteúdo do branch de origem}
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;refs/remote/origin/main
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>{Conteúdo do branch de destino}
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>=======
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>{Conteúdo do branch de origem}
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt;refs/remote/origin/main
 </span></code></pre></div>
 <h2 id="gitflow">GitFlow<a class="headerlink" href="#gitflow" title="Permanent link">&para;</a></h2>
 

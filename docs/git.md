@@ -17,6 +17,14 @@ git config --global --list # (1)!
 
 1. O comando é usado para exibir as configurações globais do Git que foram definidas no sistema. Essas configurações são armazenadas em um arquivo chamado `.gitconfig`, que geralmente fica localizado no diretório home do usuário.
 
+## Áreas do Git
+
+![](https://www.i2tutorials.com/wp-content/media/2023/02/work2.png)
+
+- Working Directory: O arquivo que você está editando.
+- Staging Area: O conjunto de alterações que será incluído no próximo commit.
+- Repository (Repositório): O banco de dados de commits, pode ser local ou remoto.
+
 ## Principais comandos
 
 ```bash
@@ -78,6 +86,27 @@ git rebase featureA # (15)!
 13. Deleta, mas força exclusão, descartando tudo que ainda não foi mesclado.
 14. Maneira pela qual podemos passar as alterações de um branch (`featureA`) para outra branch (`main`).
 15. Maneira de transferir um conjunto de commits de uma branch (`featureA`) para outra (`main`). O objetivo principal do rebasing é criar um histórico de commits mais linear e limpo.
+
+### Reverter mudanças
+
+```bash
+git restore <nome-do-arquivo> # (1)!
+git restore --staged <nome-do-arquivo> # (2)!
+git restore --source=<hash-do-commit> <nome-do-arquivo> # (3)!
+
+# REVERTENDO COMMITS
+git revert <hash-do-commit> # (4)!
+git revert HEAD~2 # (6)!
+
+git reset --hard HEAD~2 # (5)!
+```
+
+1. Você fez alterações em um arquivo, percebeu que cometeu um erro e quer descartar tudo para começar de novo a partir do último commit. O arquivo em sua cópia de trabalho é sobrescrito com a versão do último commit (ou do staging, se estiver staged). As alterações que você fez no arquivo são permanentemente perdidas.
+2. Você fez `git add` em um arquivo por engano ou decidiu que as alterações nele precisam de mais trabalho e você decidiu que ele não deveria fazer parte do próximo commit. O arquivo é removido da área de staging. A versão modificada do arquivo em sua cópia de trabalho é mantida; ele simplesmente se move de volta para a seção "Changes not staged for commit".
+3. Você precisa ver ou reverter para a versão de um arquivo de um ponto específico no histórico do projeto. O arquivo na sua cópia de trabalho é revertido para a versão daquele commit específico.
+4. O `git revert` desfaz o efeito de um commit específico adicionando um novo commit no topo da branch, sem alterar ou reescrever a história já existente (os commits subsequentes ao que será revertido). Sempre deve apontar para um commit específico.
+5. Move o `HEAD` e a branch local dois commits para trás. Descarta todos os commits e as alterações feitas neles (tanto no staging quanto na cópia de trabalho).
+6. Comando alternativo, sendo o número 1 o último commit, o 2 o penúltimo, o 3 o antepenúltimo e assim por diante...
 
 Marcador de Conflitos:
 
