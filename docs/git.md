@@ -6,6 +6,10 @@ tags:
 
 # Git
 
+??? info "Recursos"
+    - [Visualizing Git](https://git-school.github.io/visualizing-git/)
+    - [Learn Git and GitHub](https://roadmap.sh/git-github)
+
 ## Configurações iniciais
 
 ```bash
@@ -97,6 +101,7 @@ git restore --source=<hash-do-commit> <nome-do-arquivo> # (3)!
 # REVERTENDO COMMITS
 git revert <hash-do-commit> # (4)!
 git revert HEAD~2 # (6)!
+git revert --continue # (7)!
 
 git reset --hard HEAD~2 # (5)!
 ```
@@ -105,18 +110,38 @@ git reset --hard HEAD~2 # (5)!
 2. Você fez `git add` em um arquivo por engano ou decidiu que as alterações nele precisam de mais trabalho e você decidiu que ele não deveria fazer parte do próximo commit. O arquivo é removido da área de staging. A versão modificada do arquivo em sua cópia de trabalho é mantida; ele simplesmente se move de volta para a seção "Changes not staged for commit".
 3. Você precisa ver ou reverter para a versão de um arquivo de um ponto específico no histórico do projeto. O arquivo na sua cópia de trabalho é revertido para a versão daquele commit específico.
 4. O `git revert` desfaz o efeito de um commit específico adicionando um novo commit no topo da branch, sem alterar ou reescrever a história já existente (os commits subsequentes ao que será revertido). Sempre deve apontar para um commit específico.
-5. Move o `HEAD` e a branch local dois commits para trás. Descarta todos os commits e as alterações feitas neles (tanto no staging quanto na cópia de trabalho).
+5. Use-o quando você comitou algo errado localmente e quer fingir que o commit nunca existiu para "começar de novo". Use apenas para desfazer commits que ainda não foram enviados (*pushed*) para o repositório remoto.
 6. Comando alternativo, sendo o número 1 o último commit, o 2 o penúltimo, o 3 o antepenúltimo e assim por diante...
+7. Após resolver um conflito de `revert`, use esse comando para continuar o processo.
 
-Marcador de Conflitos:
+Os três modos do `git revert`:
 
-```
-<<<<<<< HEAD
-{Conteúdo do branch de destino}
-=======
-{Conteúdo do branch de origem}
->>>>>>>refs/remote/origin/main
-```
+| Opção | Frase Intuitiva |
+| :--- | :--- |
+| `--soft` | Reverte apenas o *commit*, mantendo todas as alterações prontas para um novo *commit*. O código não é tocado (você desfaz o *commit* e o código fica como se tivesse feito `git add` em tudo). |
+| `--mixed` | Reverte o *commit* e o *staging*, deixando as alterações como arquivos modificados na sua área de trabalho. O código não é tocado, mas sai do *staging* (você desfaz o *commit* e o `git add`). |
+| `--hard` | Volta o projeto no tempo, apagando o *commit* e descartando permanentemente todas as alterações no código. O código é apagado (você desfaz o *commit* e as alterações no código).|
 
-## GitFlow
+## Workflows Colaborativos
+### GitFlow
+
+![](https://miro.medium.com/1*MsVN9FOK7Aaue2gFYsehIg.png)
+
+- branches principais e permanentes
+    - `main` (ou `master` ou `trunk`) é o branch usado para armazenar as versões de um sistema que estão em **produção**.
+    - `develop` é usado para armazenar código com funcionalidades que já foram implementadas, mas que ainda não passaram por um teste final (QA).
+- branches temporárias
+    - Branches de funcionalidade (`feature`) 
+    - Branches de `release` são usados para preparar uma nova release
+    - Branches de `hotfix` são usados para corrigir um erro crítico que foi detectado em produção (`main`)
+
+### Github Flow
+
+Existem apenas o branch principal e branches de funcionalidade, com suporte a revisão de código antes de integração, por meio do Pull Requests (PR).
+
+![](https://user-images.githubusercontent.com/6351798/48032310-63842400-e114-11e8-8db0-06dc0504dcb5.png)
+
+### TBD
+
+Trunk-based development usa apenas a branch principal (`main`), e todos os desenvolvedores realizam seus commits diretamente no branch principal. Os desenvolvedores podem criar branches de funcionalidade, mas tais branches devem ter uma duração limitada, sendo integrados na branch principal.
 
