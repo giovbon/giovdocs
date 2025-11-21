@@ -19,6 +19,16 @@ git config --global user.email "giovani.bontempo@faculdadeimpacta.com.br"
 git config --global --list # (1)!
 ```
 
+```bash
+ssh-keygen -t ed25519 -C "seu-email-do-github@example.com"
+# ou então
+ssh-keygen -t rsa -b 4096 -C "seu-email-do-github@example.com"
+cat ~/.ssh/id_ed25519.pub #copie o código
+```
+
+Após copiar o código, colar no github: settings > ssh and gpg keys > new ssh key
+
+
 1. O comando é usado para exibir as configurações globais do Git que foram definidas no sistema. Essas configurações são armazenadas em um arquivo chamado `.gitconfig`, que geralmente fica localizado no diretório home do usuário.
 
 ## Áreas do Git
