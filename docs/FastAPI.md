@@ -1,5 +1,7 @@
 ---
 icon: simple/fastapi
+tags:
+    - API
 ---
 
 ??? info "Recursos"

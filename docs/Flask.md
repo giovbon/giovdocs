@@ -1,5 +1,7 @@
 ---
 icon: simple/flask
+tags:
+    - API
 ---
 
 - FastAPI = produtividade + performance + estrutura forte + async
