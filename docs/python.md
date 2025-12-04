@@ -6,6 +6,55 @@ tags:
 
 # Python
 
+??? info "Recursos"
+    - [Roadmap Python](https://roadmap.sh/python)
+
+## Gerenciador de Pacotes `pip`
+
+O gerenciador de pacotes padrão para Python é o `pip`. Ele permite instalar e gerenciar pacotes que não fazem parte da biblioteca padrão do Python.
+
+```bash
+pip --version # (6)!
+
+# instalação, atualização e deleção de pacotes
+pip install nome_do_pacote
+pip install nome_do_pacote==1.2.3
+pip install --upgrade nome_do_pacote
+pip uninstall nome_do_pacote
+
+pip freeze > requirements.txt # (1)!
+pip install -r requirements.txt # (2)!
+
+pip list # (3)!
+pip show nome_do_pacote # (4)!
+pip freeze # (5)!
+
+pip search termo
+```
+
+1. Gera arquivo `requirements.txt` com as dependências do projeto. lista todos os pacotes instalados naquele ambiente, incluindo pacotes que você instalou manualmente com `pip` e pacotes que vieram como dependências de outros pacotes
+2. Instala as dependências listadas (no requirements) do projeto
+3. Lista pacotes instalados
+4. Ver detalhes do pacote instalado
+5. Mostrar todas as dependências com versões
+6. Ver onde o pip está instalado
+
+### Ambiente Virtual
+
+`virtualenv` é uma ferramenta para criar ambientes Python isolados. Ela cria uma pasta que contém todos os executáveis ​​necessários para usar os pacotes que um projeto Python precisa. Quaisquer pacotes que você usar dentro desse ambiente serão independentes do interpretador do seu sistema. Isso significa que você pode manter as dependências do seu projeto separadas de outros projetos e do sistema em geral.
+
+Após criar e ativar o ambiente virtual, você pode instalar pacotes nele. Os pacotes instalados em um ambiente virtual ficam isolados de todos os outros ambientes do seu sistema.
+
+```bash
+python -m venv venv/ # (1)!
+source venv/bin/activate # (2)!
+pip install flask
+```
+
+1. Cria o ambiente `venv`, vai criar uma pasta com mesmo nome na raiz do projeto.
+2. Ativa o ambiente, em windows fica `venv\Scripts\activate`
+
+
 ## Arquivo `__init__`
 
 O arquivo `__init__.py` marca um diretório como um **diretório de pacote Python**, o que significa que o Python conseguirá importar os arquivos dentro desse diretório como parte de um pacote.
