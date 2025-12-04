@@ -8,6 +8,7 @@ tags:
 
 ??? info "Recursos"
     - [Roadmap Python](https://roadmap.sh/python)
+    - [Learn Python in Y Minutes](https://learnxinyminutes.com/pt-br/python/)
 
 ## Gerenciador de Pacotes `pip`
 
@@ -28,11 +29,9 @@ pip install -r requirements.txt # (2)!
 pip list # (3)!
 pip show nome_do_pacote # (4)!
 pip freeze # (5)!
-
-pip search termo
 ```
 
-1. Gera arquivo `requirements.txt` com as dependências do projeto. lista todos os pacotes instalados naquele ambiente, incluindo pacotes que você instalou manualmente com `pip` e pacotes que vieram como dependências de outros pacotes
+1. Gera arquivo `requirements.txt` com as dependências do projeto. Lista todos os pacotes instalados naquele ambiente, incluindo pacotes que você instalou manualmente com `pip` e pacotes que vieram como dependências de outros pacotes
 2. Instala as dependências listadas (no requirements) do projeto
 3. Lista pacotes instalados
 4. Ver detalhes do pacote instalado
@@ -43,7 +42,7 @@ pip search termo
 
 `virtualenv` é uma ferramenta para criar ambientes Python isolados. Ela cria uma pasta que contém todos os executáveis ​​necessários para usar os pacotes que um projeto Python precisa. Quaisquer pacotes que você usar dentro desse ambiente serão independentes do interpretador do seu sistema. Isso significa que você pode manter as dependências do seu projeto separadas de outros projetos e do sistema em geral.
 
-Após criar e ativar o ambiente virtual, você pode instalar pacotes nele. Os pacotes instalados em um ambiente virtual ficam isolados de todos os outros ambientes do seu sistema.
+Após criar e ativar o ambiente virtual, você pode instalar pacotes nele.
 
 ```bash
 python -m venv venv/ # (1)!
