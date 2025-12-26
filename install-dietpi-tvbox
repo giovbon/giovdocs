@@ -29,12 +29,6 @@
 	# - RK35XX_MAINLINE=1			Install mainline kernel on RK35xx based SBCs we would otherwise install the vendor kernel
 	#------------------------------------------------------------------------------------------------
 
-    ### FORCE NO KERNEL HANDLING (TV BOX PATCH)
-    export DIETPI_SKIP_KERNEL=1
-    export DIETPI_DISABLE_KERNEL_INSTALL=1
-    export DIETPI_ASSUME_KERNEL_INSTALLED=1
-
-
 	# Core globals
 	G_PROGRAM_NAME='DietPi-Installer'
 
