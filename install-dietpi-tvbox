@@ -52,7 +52,7 @@
 	> /etc/environment
 	# - Apply override LC_ALL and default LANG for current script
 	export LC_ALL='C.UTF-8' LANG='C.UTF-8'
-
+	apt-mark hold linux-image-* linux-dtb-* armbian-firmware armbian-configapt-mark hold linux-image-* linux-dtb-* armbian-firmware armbian-config
 	# Set $PATH variable to include all expected default binary locations, since we don't know the current system setup: https://github.com/MichaIng/DietPi/issues/3206
 	export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
 
